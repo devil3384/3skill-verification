@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3Skill Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(180deg, #eef3f8, #f7f9fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 380px;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2b6cb0;
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin-top: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #4299e1, #2b6cb0);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .loading {
+      margin-top: 20px;
+      display: none;
+      color: #555;
+    }
+
+    .result {
+      display: none;
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: left;
+      border-left: 5px solid #38a169;
+    }
+
+    .result h3 {
+      color: #38a169;
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>3Skill Certificate Verification</h1>
+    <p>Verify your certificate authenticity in seconds</p>
+
+    <div class="card">
+      <input type="text" id="cid" placeholder="Certificate ID">
+      <button onclick="verify()">Verify Certificate</button>
+    </div>
+
+    <div class="loading" id="loading">
+      ⏳ Verifying your certificate...
+    </div>
+
+    <div class="result" id="result">
+      <h3>✅ Certificate Verified</h3>
+      <p><b>Name:</b> Kunal Tanaji Patil</p>
+      <p><b>Internship Domain:</b> Web Development</p>
+      <p><b>Internship Type:</b> Unpaid</p>
+      <p><b>Internship Duration:</b> 2 Months</p>
+      <p><b>Issue Date:</b> February 5, 2026</p>
+    </div>
+  </div>
+
+  <script>
+    function verify() {
+      let id = document.getElementById("cid").value;
+      let loading = document.getElementById("loading");
+      let result = document.getElementById("result");
+
+      result.style.display = "none";
+
+      if(id === "") {
+        alert("Please enter Certificate ID");
+        return;
+      }
+
+      loading.style.display = "block";
+
+      setTimeout(() => {
+        loading.style.display = "none";
+
+        if(id === "INTERN457890") {
+          result.style.display = "block";
+        } else {
+          alert("❌ Invalid Certificate ID");
+        }
+      }, 2000); // 2 seconds loading
+    }
+  </script>
+</body>
+</html>
+
+
+
